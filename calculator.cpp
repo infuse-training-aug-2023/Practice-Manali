@@ -5,6 +5,9 @@ public:
     int add(int a, int b) {
         return a + b;
     }
+    int subract(int a, int b) {
+        return a - b;
+    }
 };
 
 int main() {
@@ -18,6 +21,9 @@ int main() {
     std::cin >> num2;
 
     int result = calc.add(num1, num2);
+    std::cout << "The sum is: " << result << std::endl;
+
+    result = calc.add(num1, num2);
     std::cout << "The sum is: " << result << std::endl;
 
     return 0;
