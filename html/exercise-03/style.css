@@ -93,6 +93,34 @@ main{
   height: 200px;
 }
 
+.test-data{
+  /* display:flex; */
+  /* flex-direction: column; */
+  background-color: rgb(8, 102, 152);
+
+  margin :2px;
+  flex: 1;
+}
+.test-data span{
+  color: white;
+
+}
+.test-data i{
+  color: white;
+}
+.test-data:first-child{
+  background-color: rgb(8, 102, 152);
+
+}
+.um-test-name{
+  /* display: inline-block; */
+  background-color: rgb(8, 102, 152);
+
+}
+/* .test-data :first-child {
+  color: red;
+} */
+
 .test-name{
   display: flex;
   background-color: rgb(8, 102, 152);
@@ -108,8 +136,7 @@ main{
 .test-properties{
   background-color: rgb(53, 162, 240);
   color: white;
-  /* text-indent: 4px; */
-  /* padding : 20px; */
+
 }
 
 .test-properties .form-properties{
@@ -170,17 +197,19 @@ main{
 }
 
 .test-flowchart{
-  height: 403px;
+  height: 410px;
   margin:2px;
   flex:2;
   /* background-color: rgb(53, 162, 240); */
   color: white;
   border:1px solid rgb(53, 162, 240);
 }
-.flowchart{
+.test-flowchart span{
+
   background-color: rgb(53, 162, 240);
   display: block;
 }
+
 
 .options {
   padding: 3px;
@@ -196,25 +225,33 @@ main{
 .test-designer{
   color: black;
 }
-.test-data{
-  display:flex;
-  flex-direction: column;
-  margin :2px;
-  flex: 1;
-}
+
+
+
 .test-variables{
   height: 200px;
   display: flex;
   flex-direction: column;
-  border:1px solid rgb(53, 162, 240);
   color: white;
+  background-color:  white;
+  border-left:1px solid rgb(53, 162, 240);
+  border-right:1px solid rgb(53, 162, 240);
   
 }
-.variable-header{
-  color: white;
-  padding: 1px;
+
+.test-variables span{
+
   background-color:  rgb(53, 162, 240);
+  /* padding: 1px; */
 }
+.test-variables i{
+  display: block;
+  background-color: white;
+  padding: 1px;
+}
+/* .variable-header{
+  color: white;
+} */
 .test-variables i{
   font-weight: bolder;
   font-size: 20px;
@@ -232,19 +269,30 @@ main{
   background-color: white;
   border-bottom:1px solid rgb(185, 185, 185);
 }
-.table-header span{
 
-  padding-left: 20px;
-
-  padding-right: 20px;
-}
 .test-parameters{
-  height: 200px;
+  height: 210px;
+  background-color:  white;
 
   display: flex;
   flex-direction: column;
-  margin-top: 2px;
-  border:1px solid rgb(53, 162, 240);
+  /* margin-top: 2px; */
+  border-left:1px solid rgb(53, 162, 240);
+  border-right:1px solid rgb(53, 162, 240);
+
+}
+
+.test-parameters span{
+  background-color:  rgb(53, 162, 240);
+
+}
+.table-header span{
+
+  padding-left: 20px;
+  background-color: white;
+  color:rgb(8, 102, 152);
+
+  padding-right: 20px;
 }
 
 .test-parameters i{

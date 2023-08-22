@@ -1,19 +1,22 @@
-// api url
 const apiKey = '6b40f680';
 const searchQuery = 'Avenger'; 
 
-const api_url =`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery}`;
+// const api_url =`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery}`;
+// const movie_api=`https://www.omdbapi.com/?apikey=6b40f680&t=Batman`;
 
-// const api_url=`https://www.omdbapi.com/?apikey=6b40f680&t=Batman`
 
-async function getapi(url) {
+const movie_api =`https://www.omdbapi.com/?apikey=${apiKey}`
 
-	// Storing response
+const api_url=`${movie_api}&t=`
+const base_url=`${movie_api}&t=Batman`;
+const homepage_url=`${movie_api}&s=${searchQuery}`;
+
+
+
+async function getApi(url) {
+
 	const response = await fetch(url);
-
-	// Storing data in form of JSON
 	var data = await response.json();
-
 	console.log(data);
 	if (response) {
 		
@@ -21,27 +24,19 @@ async function getapi(url) {
 	}else{
         console.log("Err fetching data");
     }
-	
-
 }
 
-getapi(api_url);
+getApi(homepage_url);
 
 
-// Function to hide the loader
-function hideloader() {
-	document.getElementById('loading').style.display = 'none';
-}
 
 
-// Function to define innerHTML for HTML table
 function show(data) {
 
     var moviesContainer = document.getElementById("movies-container");
-
     var moviesHTML = "";
-
     var movies = data.Search;
+
     for (var i = 0; i < movies.length; i++) {
         console.log(movies[i].Title);
 
@@ -58,10 +53,7 @@ function show(data) {
             </div>
         `;
     }
-
-
     moviesContainer.innerHTML = moviesHTML;
-
 }
 
 
@@ -70,7 +62,6 @@ function sortMovies() {
     var movies = Array.from(moviesContainer.getElementsByClassName("movie"));
     console.log("sortMovies");
     console.log(movies)
-    // Toggle between ascending and descending order
     var ascendingOrder = true;
     if (moviesContainer.getAttribute("data-sorted") === "asc") {
         ascendingOrder = false;
@@ -79,7 +70,6 @@ function sortMovies() {
         moviesContainer.setAttribute("data-sorted", "asc");
     }
 
-    // Sort the movies array based on the movie titles
     movies.sort((a, b) => {
         var yearA = a.querySelector(".year").textContent.toLowerCase();
         var yearB = b.querySelector(".year").textContent.toLowerCase();
@@ -88,7 +78,6 @@ function sortMovies() {
         return 0;
     });
 
-    // Append the sorted movies back to the container
     moviesContainer.innerHTML = "";
     movies.forEach(movie => moviesContainer.appendChild(movie));
 }
@@ -97,52 +86,35 @@ function sortMovies() {
 function searchMovies() {
     var moviesContainer = document.getElementById("movies-container");
 
-    var searchQuery1 = document.getElementById("search-input").value.toLowerCase();
-    // var movieDivs = Array.from(document.getElementsByClassName("movie"));
-const url1 =`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery1}`;
-    
-    // console.log(movieDivs);
-    // movieDivs.forEach(movieDiv => {
-    //     var titleElement = movieDiv.querySelector(".title");
-    //     var movieTitle = titleElement.textContent.toLowerCase();
+    var searchTitle = document.getElementById("search-input").value.toLowerCase();
+    const url =`${movie_api}&s=${searchTitle}`;
 
-    //     if (movieTitle.includes(searchQuery)) {
-    //         movieDiv.style.display = "block";
-    //     } else {
-    //         movieDiv.style.display = "none";
-    //     }
-    // });
-    getapi(url1)
+    getApi(url)
  
 }
 
 
 function viewMore(title) {
-    console.log(title);
-    var url = "https://www.omdbapi.com/?apikey=6b40f680&t=" + encodeURIComponent(title);
+
+    var url=api_url+encodeURIComponent(title);
     getmovie(url);
 }
 
+window.addEventListener('message', function(event) {
+    // Update the movie card with the received movie details
+    showMovie(event.data);
+  });
+  
 
-const movie_api=`https://www.omdbapi.com/?apikey=6b40f680&t=Batman`;
 
 async function getmovie(url) {
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+    const response = await fetch(url);
+    const data = await response.json();
+    // Send movie details to the parent page
+    window.parent.postMessage(data, '*');
+  }
 
-        if (response.ok) {
-            console.log("Got movie data:", data);
-            showMovie(data);
-        } else {
-            console.log("Error fetching movie data");
-        }
-    } catch (error) {
-        console.error("An error occurred:", error);
-    }
-}
-
-getmovie(movie_api);
+getmovie(base_url);
 
 function showMovie(data) {
     

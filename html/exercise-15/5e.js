@@ -69,28 +69,48 @@ function viewMore(title) {
 
 
 const movie_api=`https://www.omdbapi.com/?apikey=6b40f680&t=Batman`;
-document.addEventListener("DOMContentLoaded", function() {
-async function getmovie(url) {
 
-	// Storing response
-	const response = await fetch(url);
+// document.addEventListener("DOMContentLoaded", function() {
 
-	// Storing data in form of JSON
-	var data = await response.json();
+// async function getmovie(url) {
 
-	console.log(data);
-	if (response) {
-		console.log("Got response");
-	}else{
-        console.log("Err fetching data");
-    }
+// 	// Storing response
+// 	const response = await fetch(url);
+
+// 	// Storing data in form of JSON
+// 	var data = await response.json();
+
+// 	console.log(data);
+// 	if (response) {
+// 		console.log("Got response");
+// 	}else{
+//         console.log("Err fetching data");
+//     }
 	
 
-	showMovie(data);
-}
-});
+// 	showMovie(data);
+// }
+// });
 // Calling that async function
 // getmovie(movie_api);
+
+
+async function getmovie(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    // Send movie details to the parent page
+    window.parent.postMessage(data, '*');
+  }
+
+  window.addEventListener('message', function(event) {
+    // Check the origin for security reasons
+    // if (event.origin !== 'https://your-iframe-origin.com') {
+    //   return;
+    // }
+  
+    // Update the movie card with the received movie details
+    showMovie(event.data);
+  });
 
 function showMovie(data) {
     

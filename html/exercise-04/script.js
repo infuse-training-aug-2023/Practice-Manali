@@ -11,10 +11,9 @@ const user = {
 
 const printUserProfile = () => {
     // Piyush Sharma is a Senior Software Engineer at Infuse Consulting. He likes Reading, Listening to music and Collecting stamps
-    const { name:Name, designation:jobTitle, company:company, hobbies:hobbies } = user;
-    // console.log(user.name)
+    const { name, designation, company, hobbies } = user;
     const hobbiesString = hobbies.join(", ");
-    console.log(`${Name} is a ${jobTitle} at ${company}. He likes ${hobbiesString}`);
+    console.log(`${name} is a ${designation} at ${company}. He likes ${hobbiesString}`);
    
 }
 
