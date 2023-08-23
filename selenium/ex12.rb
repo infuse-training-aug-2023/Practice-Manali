@@ -8,57 +8,64 @@ driver=Selenium::WebDriver.for :chrome
 
 
 driver.manage.window.maximize
+driver.manage.window.minimize
+driver.manage.window.maximize
+
 
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 
 driver.manage.timeouts.implicit_wait = 3
 
-userName = "user-name"
-password = "password"
 
-driver.get "https://www.saucedemo.com/"
 
-username_cont = driver.find_element(:id, userName)
-password_cont = driver.find_element(:id, password)
-login_btn = driver.find_element(:id, "login-button")
+driver.get "https://practise.usemango.co.uk/"
 
-username_cont.send_keys("standard_user")
+login_click=driver.find_element(:css,"#navbarNavAltMarkup > div:nth-child(2) > a:nth-child(1)")
+login_click.click
+username=driver.find_element(:id,"exampleInputEmail1");
+password=driver.find_element(:id,"exampleInputPassword1");
 
-password_cont.send_keys("secret_sauce")
 
-login_btn.click
+username.send_keys("manali")
+password.send_keys("shwqytry")
 
-backpack_add_card = wait.until { driver.find_element(:id, "add-to-cart-sauce-labs-backpack") }
+submit=driver.find_element(:css,"#root > div > form > center > button").click
 
-puts backpack_add_card.location
+puts driver.title
 
-backpack_add_card.click
 
-shoping_cart = driver.find_element(:id, "shopping_cart_container")
-if shoping_cart.displayed?
-  shoping_cart.click
-end
 
-driver.find_element(:id, "checkout").click
 
-driver.find_element(:id, "first-name").send_keys("ANish")
-driver.find_element(:id, "last-name").send_keys("Naik")
-driver.find_element(:id, "postal-code").send_keys("403596")
-driver.find_element(:id, "continue").click
-driver.find_element(:id, "finish").click
+driver.navigate().to("https://practise.usemango.co.uk/wishlist");
+driver.navigate().back();
+driver.navigate().to("https://practise.usemango.co.uk/contact");
+driver.navigate().back();
+# driver.navigate().refresh();
 
-shoping_cart = driver.find_element(:id, "shopping_cart_container")
+driver.navigate().to("https://www.globalsqa.com/demo-site/sliders/#Steps")
 
-if shoping_cart.displayed?
-  shoping_cart.click
-end
+driver.save_screenshot("./ss.png")
 
-# postal-code
 
-driver.manage.new_window(:tab)
-sleep(5)
+
+wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+
+
+
+
+
+iframe= driver.find_element(:xpath,'//*[@id="post-2673"]/div[2]/div/div/div[3]/p/iframe')
+driver.switch_to.frame iframe;
+
+
+slider = wait.until { driver.find_element(:id, "slider")}
+
+driver.action.drag_and_drop_by(slider, 10, 0).perform
+
+amount = driver.find_element(:id, "amount")
+puts amount.attribute("value")
+
+sleep(2)
 driver.close
-sleep(5)
-# driver.save_screenshot("./ss.png")
 
 driver.quit
