@@ -1,15 +1,13 @@
-const apiKey = '6b40f680';
+// const apiKey = '6b40f680';
 const searchQuery = 'Avenger'; 
 
-// const api_url =`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchQuery}`;
-// const movie_api=`https://www.omdbapi.com/?apikey=6b40f680&t=Batman`;
+const api=env.API_URL;
 
+// const movie_api =`https://www.omdbapi.com/?apikey=${apiKey}`
 
-const movie_api =`https://www.omdbapi.com/?apikey=${apiKey}`
-
-const api_url=`${movie_api}&t=`
-const base_url=`${movie_api}&t=Batman`;
-const homepage_url=`${movie_api}&s=${searchQuery}`;
+const api_url=`${api}&t=`
+const base_url=`${api}&t=Batman`;
+const homepage_url=`${api}&s=${searchQuery}`;
 
 
 
@@ -27,8 +25,6 @@ async function getApi(url) {
 }
 
 getApi(homepage_url);
-
-
 
 
 function show(data) {

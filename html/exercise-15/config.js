@@ -1,5 +1,4 @@
-// config.js
-const config = {
-    apiKey: 'your-api-key',
-    // Add other variables as needed
+var Config = {
+    apiUrl: "https://api.example.com",
+    websiteUrl: "https://www.example.com"
 };

@@ -24,6 +24,11 @@ body {
   align-items: center;
 }
 
+.card::after{
+  display:block;
+  content: url("assets/new-usemango-logo.png");
+}
+
 .container {
   display: grid;
   place-items: center;
@@ -32,8 +37,6 @@ body {
 
 img{
   display: flex;
-  /* align-self: center; */
-  /* justify-self: center; */
   height: auto;
 }
 
