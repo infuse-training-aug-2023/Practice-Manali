@@ -10,22 +10,8 @@ function updateTime() {
     const timeString = `${hours}:${minutes}:${seconds}`;
     clock.textContent = timeString;
 
-    if (darkModeToggle.checked) {
-        document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
-    }
+    document.body.classList.toggle('dark-mode', darkModeToggle.checked);
 }
 
-
-// function toggleDarkMode() {
-//     const darkModeToggle = document.getElementById('darkModeToggle');
-//     document.body.classList.toggle('dark-mode', darkModeToggle.checked);
-// }
-
-updateTime(); // Initial call
-setInterval(updateTime, 1000); // Update every second
-
-
-// const darkModeToggle = document.getElementById('darkModeToggle');
-// darkModeToggle.addEventListener('change', toggleDarkMode);
+updateTime();
+setInterval(updateTime, 1000);

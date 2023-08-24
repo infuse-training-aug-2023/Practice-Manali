@@ -22,18 +22,12 @@ body.dark-mode {
     font-size: 2rem;
     margin-bottom: 10px;
 }
-
-
-
-
-
-
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-left: 10px; /* Add some spacing */
+    margin-left: 10px; 
 }
 
 .switch input {
@@ -68,7 +62,6 @@ body.dark-mode {
     border-radius: 50%;
 }
 
-/* Styles for the dark mode toggle when checked */
 input:checked + .slider {
     background-color: #2196F3;
 }

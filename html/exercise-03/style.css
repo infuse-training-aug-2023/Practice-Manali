@@ -1,7 +1,6 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  /* font-family:Arial, Helvetica, sans-serif; */
 }
 
 .container {
@@ -47,8 +46,6 @@ main{
   width: 40px;
 }
 .um-navitems__main{
- 
-
   display: flex;
   flex-direction: column;
   color: rgb(53, 162, 240) ;
@@ -94,10 +91,7 @@ main{
 }
 
 .test-data{
-  /* display:flex; */
-  /* flex-direction: column; */
   background-color: rgb(8, 102, 152);
-
   margin :2px;
   flex: 1;
 }
@@ -113,13 +107,12 @@ main{
 
 }
 .um-test-name{
-  /* display: inline-block; */
   background-color: rgb(8, 102, 152);
 
 }
-/* .test-data :first-child {
-  color: red;
-} */
+.test-data :first-child {
+  background-color: black;
+}
 
 .test-name{
   display: flex;
@@ -174,9 +167,8 @@ main{
 }
 
 #tags{
-  appearance: none; /* Remove default styling */
+  appearance: none; 
   -webkit-appearance: none;
-  /* padding: 2px; */
   margin-left: 4px;
   padding-left: 4px;
   border: 0.1px solid rgb(255, 255, 255);
@@ -200,7 +192,6 @@ main{
   height: 410px;
   margin:2px;
   flex:2;
-  /* background-color: rgb(53, 162, 240); */
   color: white;
   border:1px solid rgb(53, 162, 240);
 }
@@ -215,12 +206,9 @@ main{
   padding: 3px;
   background-color: white;
   color:grey;
-  /* background-color: blueviolet; */
 }
 .options :hover{
-  
   color: rgb(47, 46, 46);
-  /* background-color: blueviolet; */
 }
 .test-designer{
   color: black;
@@ -249,9 +237,7 @@ main{
   background-color: white;
   padding: 1px;
 }
-/* .variable-header{
-  color: white;
-} */
+
 .test-variables i{
   font-weight: bolder;
   font-size: 20px;
@@ -263,8 +249,6 @@ main{
 .table-header{
   padding: 2px;
   display: flex;
-
-  /* justify-content: space-evenly; */
   color:rgb(8, 102, 152);
   background-color: white;
   border-bottom:1px solid rgb(185, 185, 185);

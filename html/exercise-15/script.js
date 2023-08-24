@@ -1,18 +1,11 @@
-// const apiKey = '6b40f680';
 const searchQuery = 'Avenger'; 
 
 const api=env.API_URL;
-
-// const movie_api =`https://www.omdbapi.com/?apikey=${apiKey}`
-
 const api_url=`${api}&t=`
 const base_url=`${api}&t=Batman`;
 const homepage_url=`${api}&s=${searchQuery}`;
 
-
-
-async function getApi(url) {
-
+async function fetchMovies(url) {
 	const response = await fetch(url);
 	var data = await response.json();
 	console.log(data);
@@ -24,20 +17,16 @@ async function getApi(url) {
     }
 }
 
-getApi(homepage_url);
+fetchMovies(homepage_url);
 
 
 function show(data) {
-
     var moviesContainer = document.getElementById("movies-container");
     var moviesHTML = "";
     var movies = data.Search;
-
     for (var i = 0; i < movies.length; i++) {
-        console.log(movies[i].Title);
-
-        var movie = movies[i];
-        
+        // console.log(movies[i].Title);
+        var movie = movies[i];   
         moviesHTML += `
             <div class="movie">
             <img src="${movie.Poster}" alt="${movie.Title} Poster">
@@ -56,7 +45,7 @@ function show(data) {
 function sortMovies() {
     var moviesContainer = document.getElementById("movies-container");
     var movies = Array.from(moviesContainer.getElementsByClassName("movie"));
-    console.log("sortMovies");
+    // console.log("sortMovies");
     console.log(movies)
     var ascendingOrder = true;
     if (moviesContainer.getAttribute("data-sorted") === "asc") {
@@ -80,20 +69,15 @@ function sortMovies() {
 
 
 function searchMovies() {
-    var moviesContainer = document.getElementById("movies-container");
-
     var searchTitle = document.getElementById("search-input").value.toLowerCase();
     const url =`${movie_api}&s=${searchTitle}`;
-
-    getApi(url)
- 
+    fetchMovies(url)
 }
 
 
 function viewMore(title) {
-
     var url=api_url+encodeURIComponent(title);
-    getmovie(url);
+    getMovie(url);
 }
 
 window.addEventListener('message', function(event) {
@@ -103,14 +87,14 @@ window.addEventListener('message', function(event) {
   
 
 
-async function getmovie(url) {
+async function getMovie(url) {
     const response = await fetch(url);
     const data = await response.json();
     // Send movie details to the parent page
     window.parent.postMessage(data, '*');
   }
 
-getmovie(base_url);
+getMovie(base_url);
 
 function showMovie(data) {
     
