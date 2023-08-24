@@ -28,14 +28,5 @@ class ArrayManipulator
   element = array_manipulator.element_at(arr, index)
   puts "Element at index #{index}: #{element}"
   
-  # start_pos = 2  
-  # end_pos = 5    
-  # elements = array_manipulator.inclusive_range(arr, start_pos, end_pos)
-  # puts "Elements between positions #{start_pos} and #{end_pos}: #{elements}"
-  
-  # elements = array_manipulator.non_inclusive(arr, start_pos, end_pos)
-  # puts "Elements between positions #{start_pos} (inclusive) and #{end_pos} (exclusive): #{elements}"
-  
-  # length = array_manipulator.start_and_length(arr, start_pos)
-  # puts "Length of array from position #{start_pos}: #{length}"
+ 
   

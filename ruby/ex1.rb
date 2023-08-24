@@ -10,15 +10,12 @@ class AverageCalculator
     formatted_number
   end
 
-  
-
   private
-
   def calculate_average
     first_part, second_part, third_part = @input_string.split('-')
     first_part = first_part.strip
 
-    if !is_float?(second_part) && !is_float?(third_part) && first_part.length!=3
+    if !is_float?(second_part) && !is_float?(third_part) && first_part.length>3
       puts "#{@input_string} is not in a valid format."
       exit
     end

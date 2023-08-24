@@ -5,13 +5,11 @@ class SportsHandler
       puts "Error: Skip value is out of bounds"
       return result
     end
-
     sports.each_with_index do |sport, index|
       if index >= skip
         result << "#{index + 1}:#{sport}"
       end
     end
-
     result
   end
 end

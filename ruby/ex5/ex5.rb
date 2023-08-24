@@ -7,7 +7,7 @@ class FileOperations
 
   def save_data_to_file(file_path)
     File.open(file_path, "w") do |file|
-      file.write(JSON.pretty_generate(@data))
+      file.write(JSON(@data))
     end
     puts "Data saved to #{file_path}"
   end
@@ -24,7 +24,7 @@ class FileOperations
     data.delete("last_name")
 
     File.open(file_path, "w") do |file|
-      file.write(JSON.pretty_generate(data))
+      file.write(JSON(data))
     end
     puts "Data updated and saved to #{file_path}"
   end
@@ -38,7 +38,7 @@ class FileOperations
     new_file_name = "#{full_name.gsub(' ', '_')}_#{timestamp}.json"
 
     File.open(new_file_name, "w") do |file|
-      file.write(JSON.pretty_generate(input_data))
+      file.write(JSON(input_data))
     end
     puts "New file created: #{new_file_name}"
   end
