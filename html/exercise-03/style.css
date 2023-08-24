@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+}
+
+aside {
+  border-right: 1px solid rgb(205, 205, 205);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+main{
+  margin: 6px;
+}
+
+.um-user{
+  padding: 4px;;
+  display :flex;
+  flex-direction: row;
+}
+.um-user:hover{
+  background-color: rgb(172, 209, 235);
+
+}
+.um-logo {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  width: 100%;
+}
+
+.um-user-name{
+  padding: 10px;
+  color:rgb(8, 87, 129);
+
+}
+.um-user-email {
+  padding: 10px;
+  font-size: x-small;
+}
+
+.um-user img {
+  width: 40px;
+}
+.um-navitems__main{
+  display: flex;
+  flex-direction: column;
+  color: rgb(53, 162, 240) ;
+  padding: 5px;
+  border-bottom:2px solid grey ;
+}
+.um-navitems__main li{
+  color:  rgb(53, 162, 240);
+
+  font-size: 18;
+  font-weight: bolder;
+  padding: 10px;
+}
+.um-navitems__main li:hover{
+  background-color: rgb(172, 209, 235);
+ 
+}
+.um-navitems__main span{
+  padding-left: 12px;
+}
+.um-navitems__secondary{
+  padding: 5px;
+  color: rgb(53, 162, 240) ;
+  border-bottom:1px solid rgb(179, 179, 179) ;
+
+}
+.um-navitems__secondary li{
+  color:  rgb(53, 162, 240);
+  font-size: 18;
+  font-weight: bolder;
+  padding: 10px;
+}
+.um-navitems__secondary li:hover{
+  background-color: rgb(172, 209, 235);
+}
+.um-navitems__secondary span{
+  padding-left: 12px;
+}
+
+.test-designer {
+  width: 50%;
+  height: 200px;
+}
+
+.test-data{
+  background-color: rgb(8, 102, 152);
+  margin :2px;
+  flex: 1;
+}
+.test-data span{
+  color: white;
+
+}
+.test-data i{
+  color: white;
+}
+.test-data:first-child{
+  background-color: rgb(8, 102, 152);
+
+}
+.um-test-name{
+  background-color: rgb(8, 102, 152);
+
+}
+.test-data :first-child {
+  background-color: black;
+}
+
+.test-name{
+  display: flex;
+  background-color: rgb(8, 102, 152);
+  color: white;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bi .bi-x {
+ justify-self: right;
+  justify-content: right;
+}
+
+.test-properties{
+  background-color: rgb(53, 162, 240);
+  color: white;
+
+}
+
+.test-properties .form-properties{
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1px;
+}
+
+.details{
+  font-size: 16px;
+  color:  rgb(8, 102, 152);
+  font-weight:200;
+  padding: 4px;
+}
+
+#status {
+  color: grey;
+  border: 1px solid rgb(240, 240, 240);
+}
+
+#assigned{
+  color: grey;
+  border: 1px solid rgb(240, 240, 240);
+}
+
+.bi .bi-plus-circle{
+  padding-left: 40px;
+  color:rgb(8, 102, 152) ;
+}
+
+.details i{
+  padding-left: 8px;
+}
+
+#tags{
+  appearance: none; 
+  -webkit-appearance: none;
+  margin-left: 4px;
+  padding-left: 4px;
+  border: 0.1px solid rgb(255, 255, 255);
+  color:rgb(8, 102, 152) ;
+}
+
+.description{
+  display: flex;
+  color:rgb(8, 102, 152) ;
+  
+}
+.description textarea{
+  background-color: rgb(235, 235, 235);
+}
+
+.test-main{
+  display :flex;
+}
+
+.test-flowchart{
+  height: 410px;
+  margin:2px;
+  flex:2;
+  color: white;
+  border:1px solid rgb(53, 162, 240);
+}
+.test-flowchart span{
+
+  background-color: rgb(53, 162, 240);
+  display: block;
+}
+
+
+.options {
+  padding: 3px;
+  background-color: white;
+  color:grey;
+}
+.options :hover{
+  color: rgb(47, 46, 46);
+}
+.test-designer{
+  color: black;
+}
+
+
+
+.test-variables{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color:  white;
+  border-left:1px solid rgb(53, 162, 240);
+  border-right:1px solid rgb(53, 162, 240);
+  
+}
+
+.test-variables span{
+
+  background-color:  rgb(53, 162, 240);
+  /* padding: 1px; */
+}
+.test-variables i{
+  display: block;
+  background-color: white;
+  padding: 1px;
+}
+
+.test-variables i{
+  font-weight: bolder;
+  font-size: 20px;
+  align-self: flex-end;
+  padding-right: 5px;
+  color:rgb(8, 87, 129);
+  
+}
+.table-header{
+  padding: 2px;
+  display: flex;
+  color:rgb(8, 102, 152);
+  background-color: white;
+  border-bottom:1px solid rgb(185, 185, 185);
+}
+
+.test-parameters{
+  height: 210px;
+  background-color:  white;
+
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 2px; */
+  border-left:1px solid rgb(53, 162, 240);
+  border-right:1px solid rgb(53, 162, 240);
+
+}
+
+.test-parameters span{
+  background-color:  rgb(53, 162, 240);
+
+}
+.table-header span{
+
+  padding-left: 20px;
+  background-color: white;
+  color:rgb(8, 102, 152);
+
+  padding-right: 20px;
+}
+
+.test-parameters i{
+  font-weight: bolder;
+  font-size: 20px;
+  align-self: flex-end;
+  padding-right: 5px;
+  color:rgb(8, 87, 129);
+  
+}
+
+
+.um-user-email{
+  color: grey;
+}

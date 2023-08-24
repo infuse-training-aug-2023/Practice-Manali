@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<script src="env.js"></script>	
+		<script src="script.js"></script>
+		<link rel="stylesheet" href="styles.css" />
+ 
+		<meta charset="UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>5d</title>
+	</head>
+	<body>
+		<h1 class="main-title">OMDB Movies</h1>
+        <div class="sort-search">
+                    <div class="sort-button">
+        <label >Sort by Year : </label>
+        <button id="sort-button" onclick="sortMovies()">Sort </button> 
+    </div>
+       
+           
+<div>
+    <input type="search" id="search-input" name="q" placeholder="Search...">
+    <button id="search-button" onclick="searchMovies()">Search</button>
+</div>
+        </div>
+
+		<h1>Movies</h1>
+
+        <div id="movies-container" class="movies">
+
+        </div>
+		
+	</body>
+</html>

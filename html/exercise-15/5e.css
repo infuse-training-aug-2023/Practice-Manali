@@ -1,0 +1,145 @@
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.entire-page{
+    background-color: rgb(52, 51, 51);
+    color: white;
+    display: flex;
+}
+.side-panel {
+  /* position: fixed; */
+  top: 0;
+  /* right: -300px; 
+  width: 300px; */
+  /* height: 800px; */
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+} 
+
+
+#info-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.more-button {
+  cursor: pointer;
+}
+
+
+
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%; /* Occupy full available width */
+}
+
+.container{
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+    margin: 40px;
+    background-color: rgb(36, 36, 36);
+    max-width: 800px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    padding:2px;
+    border-radius: 15px;
+  
+   
+}
+
+.container img{
+    flex: 1;
+    border-top-left-radius : 15px;
+    border-bottom-left-radius: 15px;
+    margin: 0px;
+    justify-self: start;
+    object-fit: cover; 
+  
+}
+
+.movie-details{
+
+    display: flex;
+
+    flex-direction: column;
+    text-align: left;
+  flex: 2;
+    
+}
+
+.movie-details .movie-title{
+    background-color: #db9334;
+    padding: 12px;
+    margin-top: 15px;
+    margin-bottom: 4px;
+    font-size: 4.5vh;
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    border: 1px solid black;
+    box-shadow: inset 10px 10px 4px rgba(237, 131, 9, 0.2),
+}
+
+.movie-time{
+        /* font-family: 'Courier New', Courier, monospace; */
+    padding: 4px;
+    margin: 6px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.movie-release{
+        /* font-family: 'Courier New', Courier, monospace; */
+    padding-left: 5px;
+
+
+    margin: 10px;
+}
+.movie-director{
+    margin: 10px;
+    padding-left: 5px;
+
+
+}
+.movie-rating{
+    margin: 10px;
+
+    padding-left: 5px;
+
+}
+.movie-actors{
+    margin: 10px;
+ 
+    padding-left: 5px;
+
+}
+
+
+.movie-plot{
+    padding-left: 5px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    margin: 10px;
+    margin-top: 10px;
+    text-align: justify;
+    align-content: space-evenly;
+    margin-bottom: 20px;
+}
+
