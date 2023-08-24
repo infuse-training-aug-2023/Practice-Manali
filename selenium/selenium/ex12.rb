@@ -32,25 +32,33 @@ password.send_keys("shwqytry")
 
 submit=driver.find_element(:css,"#root > div > form > center > button").click
 
+
+name=wait.until{driver.find_element(:name,"name")};
+
 puts driver.title
 
+driver.get "https://practise.usemango.co.uk/contact"
 
 
 
-driver.navigate().to("https://practise.usemango.co.uk/wishlist");
-driver.navigate().back();
-driver.navigate().to("https://practise.usemango.co.uk/contact");
-driver.navigate().back();
+# driver.navigate().to("https://practise.usemango.co.uk/wishlist");
+# driver.navigate().back();
+# driver.navigate().to("https://practise.usemango.co.uk/contact");
+# driver.navigate().back();
 
-product_page=driver.find_element(:id ,"products").click
 
-driver.find_element(:css,"div:first-child.col-lg-3.col-md-4.col-sm-6.col-12.mt-3.d-flex.align-items-baseline.justify-content-center > select.px-3.py-1").click
+# driver.navigate().to("https://practise.usemango.co.uk/products")
 
-sleep(4)
+# searchproduct=driver.find_element(:id,"searchproduct")
+# searchproduct.send_keys("airpod")
+
+# driver.find_element(:css,"div:first-child.col-lg-3.col-md-4.col-sm-6.col-12.mt-3.d-flex.align-items-baseline.justify-content-center > select.px-3.py-1").click
+
+sleep(2)
 # driver.navigate().refresh();
 
 
-driver.save_screenshot("./ss.png")
+# driver.save_screenshot("./ss.png")
 
 
 
@@ -60,7 +68,7 @@ driver.save_screenshot("./ss.png")
 
 
 
-sleep(2)
+# sleep(2)
 
 
 driver.quit
