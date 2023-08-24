@@ -9,11 +9,20 @@ driver.get 'https://testpages.herokuapp.com/styled/basic-html-form-test.html'
 
  
 
-dropdown=driver.find_element(:name,"dropdown")
+dropdown=driver.find_element(:name,"multipleselect[]")
 
-option_list=dropdown.find_elements(:tag_name,"option")[3]
+dropdown = Selenium::WebDriver::Support::Select.new(dropdown)
+options= dropdown.options()
+
+
+
+value_to_select=2
+selected_option=options[value_to_select].click
+
+puts options.value
+
  
-puts option_list.text
+puts selected_option.text
 
 
  

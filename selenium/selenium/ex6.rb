@@ -7,18 +7,14 @@ driver=Selenium::WebDriver.for :chrome
 
 driver.get 'https://letcode.in/forms'
 
- 
 
-dropdown_list = driver.find_element(:css, 'div:nth-child(5).columns.container > div:last-child.column.is-half > div.field > div.control')
+dropdown_list=driver.find_element(:xpath,'//select[starts-with(.,"AfghanistanÅland IslandsAlbaniaAlgeriaAmerican")]')
 
-option_list = dropdown_list.find_elements(:tag_name, "option")
-
- 
-
-option_list.each do |values|
-
+dropdown = Selenium::WebDriver::Support::Select.new(dropdown_list)
+options= dropdown.options()
+# puts dropdown.first_selected_option().text
+options.each do |values|
    puts values.text
-
 end
 
  
