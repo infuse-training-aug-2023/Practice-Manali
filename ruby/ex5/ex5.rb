@@ -5,7 +5,6 @@ class FileOperations
     @data = data
   end
 
-#1
   def save_data_to_file(file_path)
     File.open(file_path, "w") do |file|
       file.write(JSON.pretty_generate(@data))
@@ -13,45 +12,42 @@ class FileOperations
     puts "Data saved to #{file_path}"
   end
 
-  # 2
   def update_data_and_save(file_path)
     json_data = File.read(file_path)
     data = JSON.parse(json_data)
 
-    first_name, last_name = data["name"].split
+    full_name = "#{data["first_name"]} #{data["middle_name"]} #{data["last_name"]}".strip
 
-    data["first name"] = first_name
-    data["last name"] = last_name
-    data.delete("name")
+    data["full_name"] = full_name
+    data.delete("first_name")
+    data.delete("middle_name")
+    data.delete("last_name")
 
     File.open(file_path, "w") do |file|
-      file.write(JSON(data))
+      file.write(JSON.pretty_generate(data))
     end
     puts "Data updated and saved to #{file_path}"
   end
 
-  #3
-
   def create_new_file_with_name(input_file_path)
     input_data = JSON.parse(File.read(input_file_path))
 
-    name = input_data["first name"]
+    full_name = input_data["full_name"]
 
     timestamp = Time.now.utc.strftime("%Y-%m-%d_%H-%M-%S")
-
-    new_file_name = "#{name.gsub(' ', '')}_#{timestamp}.json"
-
+    new_file_name = "#{full_name.gsub(' ', '_')}_#{timestamp}.json"
 
     File.open(new_file_name, "w") do |file|
-      file.write(JSON(input_data))
+      file.write(JSON.pretty_generate(input_data))
     end
-
+    puts "New file created: #{new_file_name}"
   end
 end
 
-
 data = {
-  "name" => "Nicole Smith",
+  "first_name" => "Nicole",
+  "middle_name" => "Marie",
+  "last_name" => "Smith",
   "age" => 25,
   "salary" => 25552.67
 }
@@ -62,3 +58,5 @@ file_path = "data.json"
 person1.save_data_to_file(file_path)
 person1.update_data_and_save(file_path)
 person1.create_new_file_with_name(file_path)
+
+
