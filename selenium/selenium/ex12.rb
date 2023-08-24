@@ -8,8 +8,9 @@ driver=Selenium::WebDriver.for :chrome
 
 
 driver.manage.window.maximize
-driver.manage.window.minimize
-driver.manage.window.maximize
+
+# driver.manage.window.minimize
+# driver.manage.window.maximize
 
 
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)
@@ -40,32 +41,26 @@ driver.navigate().to("https://practise.usemango.co.uk/wishlist");
 driver.navigate().back();
 driver.navigate().to("https://practise.usemango.co.uk/contact");
 driver.navigate().back();
+
+product_page=driver.find_element(:id ,"products").click
+
+driver.find_element(:css,"div:first-child.col-lg-3.col-md-4.col-sm-6.col-12.mt-3.d-flex.align-items-baseline.justify-content-center > select.px-3.py-1").click
+
+sleep(4)
 # driver.navigate().refresh();
 
-driver.navigate().to("https://www.globalsqa.com/demo-site/sliders/#Steps")
 
 driver.save_screenshot("./ss.png")
 
 
 
-wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 
 
 
 
 
-iframe= driver.find_element(:xpath,'//*[@id="post-2673"]/div[2]/div/div/div[3]/p/iframe')
-driver.switch_to.frame iframe;
-
-
-slider = wait.until { driver.find_element(:id, "slider")}
-
-driver.action.drag_and_drop_by(slider, 10, 0).perform
-
-amount = driver.find_element(:id, "amount")
-puts amount.attribute("value")
 
 sleep(2)
-driver.close
+
 
 driver.quit
