@@ -1,12 +1,10 @@
-FROM ruby:latest
+FROM ruby:2.7
 
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+COPY ex3.rb /app/
+COPY test_ex3.rb /app/
 
-RUN gem install bundler
-RUN bundle install
+RUN gem install test-unit
 
-COPY . .
-
-CMD ["ruby", "ex3_test.rb"]
+CMD ["ruby", "test_ex3.rb"]

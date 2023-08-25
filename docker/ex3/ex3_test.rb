@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative 'ex3'  # Assuming the Calculator class is defined in 'calculator.rb'
+require_relative 'ex3'  
 
 class TestCalculator < Test::Unit::TestCase
   def setup
