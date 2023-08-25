@@ -32,12 +32,14 @@ password.send_keys("shwqytry")
 
 submit=driver.find_element(:css,"#root > div > form > center > button").click
 
+nav=driver.find_element(:id,"navbarNavAltMarkup")
 
-name=wait.until{driver.find_element(:name,"name")};
+
+# name=driver.find_element(:name,"name");
 
 puts driver.title
 
-driver.get "https://practise.usemango.co.uk/contact"
+# driver.get "https://practise.usemango.co.uk/contact"
 
 
 
