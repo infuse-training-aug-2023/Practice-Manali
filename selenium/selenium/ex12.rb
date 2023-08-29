@@ -1,76 +1,45 @@
 
-require 'selenium-webdriver'
+class Shop
 
+    def initialize
+    
+        Selenium::WebDriver::Chrome::Service.driver_path='G:/selenium training/drivers/chromedriver.exe'
+      @driver = Selenium::WebDriver.for :chrome
+      @driver.manage.window.maximize
+      @driver.get 'https://www.saucedemo.com/v1/'
+  
+    end
+  
+    def login(username, password)
+  
+      username_field = @driver.find_element(id: 'user-name')
+      password_field = @driver.find_element(id: 'password')
+      login_button = @driver.find_element(id: 'login-button')
+      
+      username_field.send_keys(username)
+      password_field.send_keys(password)
+      login_button.click
+  
+    end
+  
+    def add_to_cart(item_name)
+  
+      dropdown = @driver.find_element(xpath: '//*[@id="inventory_filter_container"]/select')
+      select = Selenium::WebDriver::Support::Select.new(dropdown)
+      select.select_by(:value, "za")
+  
+      add_to_cart_button = @driver.find_element(xpath: '//*[@id="inventory_container"]/div/div[4]/div[3]/button')
+      add_to_cart_button.click
+  
+    end
 
-Selenium::WebDriver::Chrome::Service.driver_path='G:/selenium training/drivers/chromedriver.exe'
-driver=Selenium::WebDriver.for :chrome
- 
-
-
-driver.manage.window.maximize
-
-# driver.manage.window.minimize
-# driver.manage.window.maximize
-
-
-wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-
-driver.manage.timeouts.implicit_wait = 3
-
-
-
-driver.get "https://practise.usemango.co.uk/"
-
-login_click=driver.find_element(:css,"#navbarNavAltMarkup > div:nth-child(2) > a:nth-child(1)")
-login_click.click
-username=driver.find_element(:id,"exampleInputEmail1");
-password=driver.find_element(:id,"exampleInputPassword1");
-
-
-username.send_keys("manali")
-password.send_keys("shwqytry")
-
-submit=driver.find_element(:css,"#root > div > form > center > button").click
-
-nav=driver.find_element(:id,"navbarNavAltMarkup")
-
-
-# name=driver.find_element(:name,"name");
-
-puts driver.title
-
-# driver.get "https://practise.usemango.co.uk/contact"
-
-
-
-# driver.navigate().to("https://practise.usemango.co.uk/wishlist");
-# driver.navigate().back();
-# driver.navigate().to("https://practise.usemango.co.uk/contact");
-# driver.navigate().back();
-
-
-# driver.navigate().to("https://practise.usemango.co.uk/products")
-
-# searchproduct=driver.find_element(:id,"searchproduct")
-# searchproduct.send_keys("airpod")
-
-# driver.find_element(:css,"div:first-child.col-lg-3.col-md-4.col-sm-6.col-12.mt-3.d-flex.align-items-baseline.justify-content-center > select.px-3.py-1").click
-
-sleep(2)
-# driver.navigate().refresh();
-
-
-# driver.save_screenshot("./ss.png")
-
-
-
-
-
-
-
-
-
-# sleep(2)
-
-
-driver.quit
+    def ss()
+        @driver.save_screenshot("./screen.png")
+    end
+    
+  end
+  
+  shop1= Shop.new
+  shop1.login("standard_user", "secret_sauce")
+  shop1.add_to_cart("Sauce Labs Backpack")
+  shop1.ss()
