@@ -4,7 +4,9 @@ WORKDIR /app
 
 RUN gem install json faker
 
+ENV ENV_VAR="ENV_VAR"
+
 COPY ex2.rb /app/
 
-CMD ["ruby", "ex2.rb" , "arg1","arg2"]
+CMD ["ruby", "ex2.rb" , "1","2"]
 

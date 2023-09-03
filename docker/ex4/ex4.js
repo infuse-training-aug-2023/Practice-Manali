@@ -11,7 +11,10 @@ rl.question('Please enter a date (YYYY-MM-DD): ', inputDate => {
   const formattedDate = moment(inputDate).format('MMMM Do YYYY, h:mm:ss a');
   console.log(`Formatted Date: ${formattedDate}`);
 
-  axios.get('https://jsonplaceholder.typicode.com/posts/1')
+
+  const apiUrl = process.env.API_URL;
+
+  axios.get(apiUrl)
     .then(response => {
       console.log('API Response:', response.data);
     })

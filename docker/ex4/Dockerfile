@@ -1,9 +1,10 @@
-
 FROM node:14
 
 WORKDIR /app
 
+ENV API_URL=https://jsonplaceholder.typicode.com/posts/1
+
 COPY ex4.js /app/
 RUN npm install axios moment readline
-CMD ["node", "ex4.js"]
 
+CMD ["node", "ex4.js"]
